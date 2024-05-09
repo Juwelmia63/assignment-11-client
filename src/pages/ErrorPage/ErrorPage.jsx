@@ -1,8 +1,13 @@
 
+import Lottie from "lottie-react";
+import errorpage from "../../assets/error.json"
+
+
 const ErrorPage = () => {
     return (
-        <div>
-            <h1 className="text-6xl font-bold">this is error page now i have to design it</h1>
+        <div className="flex flex-col justify-center items-center">
+            <Lottie className="max-w-4xl max-h-2 mx-auto" animationData={errorpage} loop={true} />
+           
         </div>
     );
 };
