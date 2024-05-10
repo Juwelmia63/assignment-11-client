@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Navber = () => {
@@ -14,9 +15,9 @@ const Navber = () => {
 
 
             <div className="flex flex-row gap-3">
-              <p className="font-semibold text-xl ">HOME</p>
-              <p className="font-semibold text-xl">All Foods</p>
-              <p className="font-semibold text-xl">Gallery</p>
+                <Link to="/"><p className="font-semibold text-xl ">HOME</p></Link>
+                <p className="font-semibold text-xl">All Foods</p>
+                <p className="font-semibold text-xl">Gallery</p>
             </div>
 
 
@@ -26,7 +27,10 @@ const Navber = () => {
 
 
 
-            <div className="flex-none">
+            <div className="flex flex-row items-center gap-2">
+                <div>
+                   <Link to="/login"> <button className="btn btn-outline py-3">Log In</button></Link>
+                </div>
 
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -47,6 +51,7 @@ const Navber = () => {
                     </ul>
                 </div>
             </div>
+
         </div>
     );
 };
