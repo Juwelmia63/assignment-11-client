@@ -30,59 +30,59 @@ const Resister = () => {
 
 
 
-    // const [success, setSuccess] = useState('');
-    // const [resisterError, setresisterError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [resisterError, setresisterError] = useState('');
     const [showpassword, setshowpassword] = useState(false);
 
 
-    // const handleresister = e => {
-    //     e.preventDefault();
+    const handleresister = e => {
+        e.preventDefault();
 
 
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
-    //     const name = form.name.value;
-    //     const photo = form.photo.value;
-    //     console.log(email, password, name, photo);
-
-
-
-
-    //     setresisterError('');
-    //     setSuccess('')
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        console.log(email, password, name, photo);
 
 
 
-    //     if (password.length < 6) {
-    //         setresisterError('Password Should Be 6 charecter or longer');
-    //         return;
-    //     }
 
-    //     else if (! /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
-    //         setresisterError('Password Must Have One Uppercase and One Lowercase Letter');
-    //         return;
-    //     }
+        setresisterError('');
+        setSuccess('')
 
 
 
+        if (password.length < 6) {
+            setresisterError('Password Should Be 6 charecter or longer');
+            return;
+        }
+
+        else if (! /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
+            setresisterError('Password Must Have One Uppercase and One Lowercase Letter');
+            return;
+        }
 
 
 
 
 
-    //     createUser(email, password)
-    //         .then(result => {
-    //             console.log(result.user);
-    //             setSuccess('User Create Successfully')
-    //         })
 
 
-    //         .catch(error => {
-    //             console.error(error)
-    //             setresisterError(error.message);
-    //         })
-    // }
+
+        // createUser(email, password)
+        //     .then(result => {
+        //         console.log(result.user);
+        //         setSuccess('User Create Successfully')
+        //     })
+
+
+        //     .catch(error => {
+        //         console.error(error)
+        //         setresisterError(error.message);
+        //     })
+    }
 
 
 
@@ -103,7 +103,7 @@ const Resister = () => {
 
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handleresister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -157,17 +157,17 @@ const Resister = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Resister</button>
+                            <button className="btn bg-[#EA6A12] text-white hover:text-black">Resister</button>
                         </div>
 
 
-                        {/* {
+                        {
                             resisterError && <p className="text-red-700">{resisterError}</p>
                         }
 
                         {
                             success && <p className="text-green-600">{success}</p>
-                        } */}
+                        } 
 
                         <div className="mt-3">
                             <p>Already have an account? <Link to="/login">Log in</Link> </p>

@@ -11,12 +11,6 @@ const Login = () => {
 
         <div className="hero min-h-screen flex lg:flex-row flex-col">
 
-            <div className="flex-1">
-         
-            </div>
-
-
-
             <div className=" flex-col w-full flex-1 justify-center items-center flex">
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -43,8 +37,12 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn bg-[#EA6A12] text-white hover:text-black">Login</button>
                         </div>
+                        <button className="btn btn-outline w-full">
+
+                            Google
+                        </button>
 
 
 
@@ -56,27 +54,13 @@ const Login = () => {
                 </div>
 
 
-               
 
 
-                <div className="text-center lg:text-left  ">
-                    <h1 className="text-2xl font-bold mb-2 text-center">or</h1>
-                    <div className="space-y-2">
-                        <button className="btn btn-outline w-full">
-                           
-                            Google
-                        </button>
-                        <button  className="btn btn-outline w-full">
-                           
-                            GitHub
-                        </button>
 
-                    </div>
-                </div>
             </div>
-           
+
         </div>
-        
+
     );
 };
 
