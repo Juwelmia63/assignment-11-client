@@ -4,7 +4,7 @@
 // import { useContext, useState } from "react";
 // import { AuthContex } from "../../Provider/AuthProvider";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { Authcontex } from "../../Provider/AuthProvider";
 
 
 
@@ -26,7 +27,9 @@ const Resister = () => {
 
 
 
-    // const { createUser } = useContext(AuthContex);
+    
+
+    const {createUser}=useContext(Authcontex);
 
 
 
@@ -71,17 +74,17 @@ const Resister = () => {
 
 
 
-        // createUser(email, password)
-        //     .then(result => {
-        //         console.log(result.user);
-        //         setSuccess('User Create Successfully')
-        //     })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user);
+                setSuccess('User Create Successfully')
+            })
 
 
-        //     .catch(error => {
-        //         console.error(error)
-        //         setresisterError(error.message);
-        //     })
+            .catch(error => {
+                console.error(error)
+                setresisterError(error.message);
+            })
     }
 
 
