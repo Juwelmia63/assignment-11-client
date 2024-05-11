@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Authcontex } from "../../../Provider/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 
 const Navber = () => {
+
+    const { user } = useContext(Authcontex);
     return (
         <div className="bg-base-100 flex lg:flex-row flex-col gap-4 justify-between items-center font-poppins">
             <div className="">
@@ -28,28 +33,60 @@ const Navber = () => {
 
 
             <div className="flex flex-row items-center gap-2">
-                <div>
-                   <Link to="/login"> <button className="btn btn-outline py-3">Log In</button></Link>
-                </div>
 
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                        </div>
-                    </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="font-semibold">
-                                My food items
 
-                            </a>
-                        </li>
-                        <li><a className="font-semibold">Add item</a></li>
-                        <li><a className="font-semibold">My Ordered</a></li>
-                        <li><a className="font-semibold">Log Out</a></li>
-                    </ul>
+
+
+                {
+                    !user ? (
+                        <>
+                            <Link
+                                to="/login"
+                                className="hidden md:block mr-4"
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="/register"
+                                className="hidden md:block mr-4"
+                            >
+                                Register
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            
+
+
+
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt='nai' src={user.photoURL} />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="font-semibold">
+                                            My food items
+
+                                        </a>
+                                    </li>
+                                    <li><a className="font-semibold">Add item</a></li>
+                                    <li><a className="font-semibold">My Ordered</a></li>
+                                    <li><a className="font-semibold">Log Out</a></li>
+                                </ul>
+                            </div>
+                        </>
+                    )
+                }
+
+                {/* <div>
+                    <Link to="/login"> <button className="btn btn-outline py-3">Log In</button></Link>
                 </div>
+ */}
+
+
             </div>
 
         </div>
@@ -57,3 +94,10 @@ const Navber = () => {
 };
 
 export default Navber;
+
+
+
+
+
+
+
