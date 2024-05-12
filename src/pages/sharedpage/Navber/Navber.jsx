@@ -47,7 +47,7 @@ const Navber = () => {
                                 Login
                             </Link>
                             <Link
-                                to="/register"
+                                to="/kali"
                                 className="hidden md:block mr-4"
                             >
                                 Register

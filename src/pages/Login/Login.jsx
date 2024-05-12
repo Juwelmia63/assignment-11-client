@@ -1,31 +1,33 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Authcontex } from "../../Provider/AuthProvider";
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { FaFacebook } from "react-icons/fa6";
 const Login = () => {
-    
-    const {signIn}= useContext(Authcontex);
 
-    const handleLogIn = event => {
-        event.preventDefault();
+    const { signIn } = useContext(Authcontex);
+
+    const handlelogin = e => {
+        e.preventDefault();
 
 
-        const form = event.target;
+        const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
         console.log(email, password);
 
 
-        signIn(email,password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error=> console.log(error));
 
-
-
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user);
+                toast.success('User logged in successfully');
+            })
+            .catch(error => {
+                console.error(error)
+                toast.error(error.message);
+            })
 
     }
 
@@ -41,7 +43,7 @@ const Login = () => {
             <div className=" flex-col w-full flex-1 justify-center items-center flex">
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleLogIn} className="card-body">
+                    <form onSubmit={handlelogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -68,7 +70,7 @@ const Login = () => {
                         </div>
                         <button className="btn btn-outline w-full">
 
-                            Google
+                        <FaFacebook />  Continue With Facebook
                         </button>
 
 
@@ -77,6 +79,7 @@ const Login = () => {
                             <p>Don't have a account yet?  <Link to="/kali"> <button >Resister</button></Link> </p>
 
                         </div>
+                      
                     </form>
                 </div>
 
@@ -85,7 +88,7 @@ const Login = () => {
 
 
             </div>
-
+            <ToastContainer />
         </div>
 
     );
