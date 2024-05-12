@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Authcontex } from "../../../Provider/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
+
 
 
 const Navber = () => {
 
-    const { user } = useContext(Authcontex);
+    const { user,logOut } = useContext(Authcontex);
     return (
         <div className="bg-base-100 flex lg:flex-row flex-col gap-4 justify-between items-center font-poppins">
+           
             <div className="">
                 <a className=" font-bold text-3xl">Restro<span className="text-[#EA6A12]">Biz</span> </a>
             </div>
@@ -74,7 +75,7 @@ const Navber = () => {
                                     </li>
                                     <li><a className="font-semibold">Add item</a></li>
                                     <li><a className="font-semibold">My Ordered</a></li>
-                                    <li><a className="font-semibold">Log Out</a></li>
+                                    <li><a className="font-semibold" onClick={()=>logOut()}>Log Out</a></li>
                                 </ul>
                             </div>
                         </>
