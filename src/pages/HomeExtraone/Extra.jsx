@@ -1,9 +1,9 @@
 
 const Extra = () => {
     return (
-        <section className="bg-gray-100 py-16">
+        <section className="bg-[#191923] py-16">
             <div className="container mx-auto">
-                <h2 className="text-3xl font-semibold text-center mb-12 font-playfairDisplay">Meet Our Chefs</h2>
+                <h2 className="text-3xl font-semibold text-center mb-12 text-white font-playfairDisplay">Meet Our Chefs</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-poppins text-justify">
                     <div className="chef-card bg-white rounded-lg shadow-lg overflow-hidden object-cover">
                         <img src="https://i.ibb.co/MRBhY2Y/22710087-male-chef-kissing-fingers-against-grey-background.jpg" alt="Chef 1" className="w-full h-64 object-cover" />
