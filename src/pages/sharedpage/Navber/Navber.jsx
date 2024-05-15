@@ -20,10 +20,10 @@ const Navber = () => {
 
 
 
-            <div className="flex flex-row gap-3">
-                <Link to="/"><p className="font-semibold text-xl ">HOME</p></Link>
-                <Link to="/allfood"><p className="font-semibold text-xl">All Foods</p></Link>
-                <Link to="/gallery"> <p className="font-semibold text-xl">Gallery</p></Link>
+            <div className="flex flex-row gap-3 font-playfairDisplay ">
+                <button className="btn btn-ghost"><Link to="/"><p className="font-semibold text-lg ">Home</p></Link></button>
+                <button className="btn btn-ghost"> <Link to="/allfood"><p className="font-semibold text-lg">All Foods</p></Link></button>
+                <button className="btn btn-ghost"> <Link to="/gallery"> <p className="font-semibold text-lg">Gallery</p></Link></button>
             </div>
 
 
@@ -63,7 +63,7 @@ const Navber = () => {
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                       <img src={user.photoURL} alt="User" />
+                                        <img src={user.photoURL} alt="User" />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-52">
@@ -82,7 +82,7 @@ const Navber = () => {
                     )
                 }
 
-              
+
 
 
             </div>

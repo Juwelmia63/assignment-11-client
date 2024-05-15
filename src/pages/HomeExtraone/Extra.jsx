@@ -5,7 +5,7 @@ const Extra = () => {
             <div className="container mx-auto">
                 <h2 className="text-3xl font-semibold text-center mb-12">Meet Our Chefs</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div className="chef-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="chef-card bg-white rounded-lg shadow-lg overflow-hidden object-cover">
                         <img src="https://i.ibb.co/vXJtm88/cook-chef-find-cook-bestcook-2a70a5f3689ea2c1fe06.jpg" alt="Chef 1" className="w-full h-64 object-cover" />
                         <div className="p-6">
                             <h3 className="text-xl font-semibold mb-2">Chef John Doe</h3>
