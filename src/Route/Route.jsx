@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Login from './../pages/Login/Login';
 import Resister from "../pages/Resister/Resister";
+import AllFood from "../pages/Allfood/AllFood";
+import Gallery from "../pages/Gallery/Gallery";
 
 
 const router = createBrowserRouter([
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
             {
                 path: "/kali",
                 element: <Resister></Resister>
+            },
+            {
+                path: "/allfood",
+                element:<AllFood></AllFood>
+            },
+            {
+                path:"/gallery",
+                element:<Gallery></Gallery>
             }
         ],
     },

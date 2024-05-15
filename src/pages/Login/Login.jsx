@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Authcontex } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { FaFacebook } from "react-icons/fa6";
+
 const Login = () => {
 
-    const { signIn } = useContext(Authcontex);
+    const { signIn,googlelogin } = useContext(Authcontex);
 
     const handlelogin = e => {
         e.preventDefault();
@@ -68,9 +68,9 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <button className="btn bg-[#EA6A12] text-white hover:text-black">Login</button>
                         </div>
-                        <button className="btn btn-outline w-full">
+                        <button onClick={()=>googlelogin()} className="btn btn-outline w-full">
 
-                        <FaFacebook />  Continue With Facebook
+                         Continue With Google
                         </button>
 
 

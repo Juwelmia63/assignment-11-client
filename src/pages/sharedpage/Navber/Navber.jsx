@@ -6,10 +6,10 @@ import { Authcontex } from "../../../Provider/AuthProvider";
 
 const Navber = () => {
 
-    const { user,logOut } = useContext(Authcontex);
+    const { user, logOut } = useContext(Authcontex);
     return (
         <div className="bg-base-100 flex lg:flex-row flex-col gap-4 justify-between items-center font-poppins">
-           
+
             <div className="">
                 <a className=" font-bold text-3xl">Restro<span className="text-[#EA6A12]">Biz</span> </a>
             </div>
@@ -22,8 +22,8 @@ const Navber = () => {
 
             <div className="flex flex-row gap-3">
                 <Link to="/"><p className="font-semibold text-xl ">HOME</p></Link>
-                <p className="font-semibold text-xl">All Foods</p>
-                <p className="font-semibold text-xl">Gallery</p>
+                <Link to="/allfood"><p className="font-semibold text-xl">All Foods</p></Link>
+                <Link to="/gallery"> <p className="font-semibold text-xl">Gallery</p></Link>
             </div>
 
 
@@ -56,14 +56,14 @@ const Navber = () => {
                         </>
                     ) : (
                         <>
-                            
+
 
 
 
                             <div className="dropdown dropdown-end">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img alt='nai' src={user.photoURL} />
+                                       <img src={user.photoURL} alt="User" />
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-52">
@@ -75,17 +75,14 @@ const Navber = () => {
                                     </li>
                                     <li><a className="font-semibold">Add item</a></li>
                                     <li><a className="font-semibold">My Ordered</a></li>
-                                    <li><a className="font-semibold" onClick={()=>logOut()}>Log Out</a></li>
+                                    <li><a className="font-semibold" onClick={() => logOut()}>Log Out</a></li>
                                 </ul>
                             </div>
                         </>
                     )
                 }
 
-                {/* <div>
-                    <Link to="/login"> <button className="btn btn-outline py-3">Log In</button></Link>
-                </div>
- */}
+              
 
 
             </div>
