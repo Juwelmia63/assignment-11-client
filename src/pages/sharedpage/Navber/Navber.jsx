@@ -73,7 +73,7 @@ const Navber = () => {
 
                                         </a>
                                     </li>
-                                    <li><a className="font-semibold">Add item</a></li>
+                                    <Link to="/additem"><li><a className="font-semibold">Add item</a></li></Link>
                                     <li><a className="font-semibold">My Ordered</a></li>
                                     <li><a className="font-semibold" onClick={() => logOut()}>Log Out</a></li>
                                 </ul>

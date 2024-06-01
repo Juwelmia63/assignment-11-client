@@ -6,6 +6,7 @@ import Login from './../pages/Login/Login';
 import Resister from "../pages/Resister/Resister";
 import AllFood from "../pages/Allfood/AllFood";
 import Gallery from "../pages/Gallery/Gallery";
+import AddItem from "../pages/AddItem/AddItem";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path:"/gallery",
                 element:<Gallery></Gallery>
+            },
+            {
+                path: "/additem",
+                element: <AddItem></AddItem>
             }
         ],
     },
