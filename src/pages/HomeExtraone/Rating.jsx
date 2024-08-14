@@ -2,7 +2,7 @@
 
 const Rating = () => {
     return (
-        <div>
+        <div className="grid sm:grid-cols-1">
             {/* <h2 className="text-3xl font-semibold text-center mb-12 text-[#191923] font-playfairDisplay">Review</h2> */}
             <div className="max-w-sm mx-auto bg-white shadow-lg font-poppins mt-5 rounded-lg overflow-hidden">
                 <div className="px-6 py-4">
@@ -27,7 +27,7 @@ const Rating = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row gap-9 justify-between my-5 items-center">
+            <div className="flex lg:flex-row flex-col gap-9 justify-between my-5 items-center">
                 <div className="max-w-sm mx-auto bg-white shadow-lg font-poppins rounded-lg overflow-hidden">
                     <div className="px-6 py-4">
                         <div className="flex items-center justify-between">
