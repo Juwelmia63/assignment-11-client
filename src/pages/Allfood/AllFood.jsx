@@ -1,7 +1,11 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useLoaderData } from "react-router-dom";
+import AllFoodCard from "./AllFoodCard";
 
 
 const AllFood = () => {
+    const allfood = useLoaderData()
+    // console.log(allfood);
     return (
         <HelmetProvider>
 
@@ -20,7 +24,13 @@ const AllFood = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className="grid grid-cols-3 gap-4 mb-4 ml-5">
+                   {allfood.map (food =>( <AllFoodCard key={food._id} food={food}></AllFoodCard> ))}
+                </div>
             </div>
+
+
         </HelmetProvider>
     );
 };

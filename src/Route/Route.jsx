@@ -30,8 +30,9 @@ const router = createBrowserRouter([
                 element: <Resister></Resister>
             },
             {
-                path: "/allfood",
-                element:<AllFood></AllFood>
+                path: "/allfoodItem",
+                element:<AllFood></AllFood>,
+                loader: ()=> fetch('http://localhost:5000/allfood')
             },
             {
                 path:"/gallery",

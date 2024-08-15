@@ -22,7 +22,7 @@ const Navber = () => {
 
             <div className="flex flex-row gap-3 font-playfairDisplay ">
                 <button className="btn btn-ghost"><Link to="/"><p className="font-semibold text-lg ">Home</p></Link></button>
-                <button className="btn btn-ghost"> <Link to="/allfood"><p className="font-semibold text-lg">All Foods</p></Link></button>
+                <button className="btn btn-ghost"> <Link to="/allfoodItem"><p className="font-semibold text-lg">All Foods</p></Link></button>
                 <button className="btn btn-ghost"> <Link to="/gallery"> <p className="font-semibold text-lg">Gallery</p></Link></button>
             </div>
 
