@@ -67,14 +67,14 @@ const Navber = () => {
                                     </div>
                                 </div>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-52">
-                                    <li>
+                                    <Link to="/myfooditem"><li>
                                         <a className="font-semibold">
                                             My food items
 
                                         </a>
-                                    </li>
+                                    </li></Link>
                                     <Link to="/additem"><li><a className="font-semibold">Add item</a></li></Link>
-                                    <li><a className="font-semibold">My Ordered</a></li>
+                                    <Link to="/myordered"><li><a className="font-semibold">My Ordered</a></li></Link>
                                     <li><a className="font-semibold" onClick={() => logOut()}>Log Out</a></li>
                                 </ul>
                             </div>

@@ -1,7 +1,7 @@
 
 const TopFoods = () => {
     return (
-        <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-5">
+        <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 lg:ml-4 sm:ml-4">
             <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">
                 <figure><img src="" alt="Shoes" /></figure>
                 <div className="card-body">

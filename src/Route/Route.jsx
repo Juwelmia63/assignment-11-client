@@ -7,6 +7,8 @@ import Resister from "../pages/Resister/Resister";
 import AllFood from "../pages/Allfood/AllFood";
 import Gallery from "../pages/Gallery/Gallery";
 import AddItem from "../pages/AddItem/AddItem";
+import Myorder from "../pages/myorderPage/Myorder";
+import MyfoodItem from "../pages/myfoodItem/MyfoodItem";
 
 
 const router = createBrowserRouter([
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
             {
                 path: "/additem",
                 element: <AddItem></AddItem>
+            },
+            {
+                path: "/myordered",
+                element: <Myorder></Myorder>
+            },
+            {
+                path: "/myfooditem",
+                element: <MyfoodItem></MyfoodItem>
             }
         ],
     },

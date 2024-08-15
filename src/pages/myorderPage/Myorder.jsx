@@ -1,21 +1,18 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
-const AllFood = () => {
+const Myorder = () => {
     return (
         <HelmetProvider>
-
-
             <Helmet>
-                <title>RestroBiz|All Food</title>
+                <title>RestroBiz|MyOrder</title>
             </Helmet>
 
-
             <div>
-                <h1>This is all Food Section</h1>
+                <h1>This is My all Order Page</h1>
             </div>
         </HelmetProvider>
     );
 };
 
-export default AllFood;
+export default Myorder;

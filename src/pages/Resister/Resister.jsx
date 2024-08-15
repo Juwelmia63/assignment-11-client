@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Authcontex } from "../../Provider/AuthProvider";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 
@@ -27,9 +28,9 @@ const Resister = () => {
 
 
 
-    
 
-    const {createUser}=useContext(Authcontex);
+
+    const { createUser } = useContext(Authcontex);
 
 
 
@@ -92,94 +93,102 @@ const Resister = () => {
 
 
     return (
-        <div className="hero min-h-screen  ">
+        <HelmetProvider>
+
+            <Helmet>
+                <title>RestroBiz|Resister</title>
+            </Helmet>
+
+
+            <div className="hero min-h-screen  ">
 
 
 
-            <div className="hero-content flex-col lg:flex-row w-full">
+                <div className="hero-content flex-col lg:flex-row w-full">
 
 
 
-                <div className="">
-                {/* <Lottie className="" animationData={resister}></Lottie> */}
-                </div>
+                    <div className="">
+                        {/* <Lottie className="" animationData={resister}></Lottie> */}
+                    </div>
 
 
-                <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form onSubmit={handleresister} className="card-body">
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="name" name="name" placeholder="name" className="input input-bordered"
+                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <form onSubmit={handleresister} className="card-body">
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="name" name="name" placeholder="name" className="input input-bordered"
 
 
-                            />
+                                />
 
-
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="email" name="email" required placeholder="email" className="input input-bordered"
-
-                            />
-
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo URL</span>
-                            </label>
-                            <input type="photo" name="photo" placeholder="photo url" className="input input-bordered"
-
-
-                            />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-
-
-
-                            <div className="relative">
-                                <input
-                                    className="  w-full py-2 px-4 border rounded-xl"
-                                    type={showpassword ? "text" : "password"}
-                                    name="password" placeholder="Password" id="" />
-
-                                <span className="absolute top-3 right-3" onClick={() => setshowpassword(!showpassword)}>{
-                                    showpassword ? <FaEye /> : <FaEyeSlash />
-                                }</span>
 
                             </div>
-                            
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email" name="email" required placeholder="email" className="input input-bordered"
+
+                                />
+
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo URL</span>
+                                </label>
+                                <input type="photo" name="photo" placeholder="photo url" className="input input-bordered"
 
 
-                        </div>
+                                />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
 
-                        <div className="form-control mt-6">
-                            <button className="btn bg-[#EA6A12] text-white hover:text-black">Resister</button>
-                        </div>
 
 
-                        {
-                            resisterError && <p className="text-red-700">{resisterError}</p>
-                        }
+                                <div className="relative">
+                                    <input
+                                        className="  w-full py-2 px-4 border rounded-xl"
+                                        type={showpassword ? "text" : "password"}
+                                        name="password" placeholder="Password" id="" />
 
-                        {
-                            success && <p className="text-green-600">{success}</p>
-                        } 
+                                    <span className="absolute top-3 right-3" onClick={() => setshowpassword(!showpassword)}>{
+                                        showpassword ? <FaEye /> : <FaEyeSlash />
+                                    }</span>
 
-                        <div className="mt-3">
-                            <p>Already have an account? <Link to="/login">Log in</Link> </p>
+                                </div>
 
-                        </div>
-                    </form>
+
+
+                            </div>
+
+                            <div className="form-control mt-6">
+                                <button className="btn bg-[#EA6A12] text-white hover:text-black">Resister</button>
+                            </div>
+
+
+                            {
+                                resisterError && <p className="text-red-700">{resisterError}</p>
+                            }
+
+                            {
+                                success && <p className="text-green-600">{success}</p>
+                            }
+
+                            <div className="mt-3">
+                                <p>Already have an account? <Link to="/login">Log in</Link> </p>
+
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </HelmetProvider>
     );
 };
 
