@@ -19,9 +19,7 @@ const Gallery = () => {
 
                     </div>
                 </div>
-                <div>
-                    <h1 className="text-5xl font-bold text-white uppercase">this is food gallery for all food</h1>
-                </div>
+              
             </div>
         </HelmetProvider>
     );
