@@ -7,6 +7,8 @@ const AllFoodCard = ({food}) => {
    
     return (
         <div>
+
+           
             <div className="card card-compact bg-base-100 w-96 shadow-xl">
                 <figure>
                     <img className="object-cover h-[240px] w-[400px]"
@@ -21,8 +23,8 @@ const AllFoodCard = ({food}) => {
                         <p className="text-lg">Price: ${price}</p>
                         <p className="text-lg">Quantity: {quantity}</p>
                     </div>
-                    <div className="card-actions">
-                        <Link to={`/singlefoodpage/${_id}`}><button className="btn btn-outline w-full">Details</button></Link>
+                    <div className="card-actions flex justify-center items-center">
+                        <Link to={`/singlefoodpage/${_id}`}><button className="btn btn-outline w-80">Details</button></Link>
                     </div>
                 </div>
             </div>

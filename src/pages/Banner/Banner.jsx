@@ -20,7 +20,7 @@ const Banner = () => {
                             />
                         </span></h1>
                     <p className="mb-5 w-full">Our restaurant offers a captivating fusion of flavors, blending traditional recipes with modern techniques</p>
-                  <Link to="/allfood">  <button className="btn text-white hover:text-black bg-[#EA6A12]">Get Started</button></Link>
+                  <Link to="/allfoodItem">  <button className="btn text-white hover:text-black bg-[#EA6A12]">Get Started</button></Link>
                 </div>
             </div>
         </div>

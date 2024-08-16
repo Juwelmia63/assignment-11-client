@@ -38,7 +38,7 @@ const TopFoods = () => {
 
             </div>
             <div className="flex items-center justify-center">
-                <Link to="/allfood">  <button className="btn text-white hover:text-black bg-[#EA6A12]">See All</button></Link>
+                <Link to="/allfoodItem">  <button className="btn text-white hover:text-black bg-[#EA6A12]">See All</button></Link>
             </div>
         </div>
     );
