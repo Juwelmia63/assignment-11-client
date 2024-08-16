@@ -3,6 +3,11 @@ import { Authcontex } from "../../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2';
 
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+
 
 
 
@@ -12,6 +17,7 @@ const Purchase = () => {
     const { user } = useContext(Authcontex);
     const food = useLoaderData();
     const { _id, food_name, food_image, food_category, price, food_origin, description } = food;
+    const [startDate, setStartDate] = useState(new Date());
 
 
     const [quantity, setQuantity] = useState(1);
@@ -23,19 +29,20 @@ const Purchase = () => {
 
     const handlePurchase = async (e) => {
         e.preventDefault();
-        const buyingDate = new Date().toLocaleString();
+        // const buyingDate = new Date().toLocaleString();
         const purchaseData = {
             price,
             quantity,
             buyerName: user.displayName,
             buyerEmail: user.email,
-            buyingDate,
-            foodImage: food.image // Include food image URL in the purchase data
+            buyingDate:startDate,
+            foodImage: food_image
         };
+        // console.table(purchaseData)
 
         try {
-            // Send purchase data to the server
-            const response = await axios.post(`https://server-open-town-restaurant.vercel.app/purchase/${id}`, purchaseData);
+          
+            const response = await axios.post('http://localhost:5000/purchasedata', purchaseData);
 
             // Show success toast
             Swal.fire({
@@ -44,6 +51,8 @@ const Purchase = () => {
                 text: 'Thank you for your purchase.',
                 confirmButtonText: 'OK'
             });
+
+            console.log(response);
 
 
         } catch (error) {
@@ -84,7 +93,7 @@ const Purchase = () => {
 
                             <p><span className="text-lg font-medium">Buyer Name:</span> {user.displayName}</p>
                             <p><span className="text-lg font-medium">Buyer Email:</span> {user?.email} </p>
-                            <p><span className="text-lg font-medium">Buying Date:</span> {Date.now()} </p>
+                            <p><span className="text-lg font-medium">Buying Date:</span>  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></p>
                         </div>
 
 
