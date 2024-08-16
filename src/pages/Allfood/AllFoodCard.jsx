@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 
 const AllFoodCard = ({food}) => {
 
-    const {food_name, food_image, food_category, price, quantity, food_origin, description}=food;
+    const {_id, food_name, food_image, food_category, price, quantity, food_origin, description}=food;
    
     return (
         <div>
@@ -13,10 +14,15 @@ const AllFoodCard = ({food}) => {
                         alt="Shoes" />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">{food_name}</h2>
-                    <p>{}</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                    <h2 className="card-title text-2xl">{food_name}</h2>
+                    <p className="text-xl">{food_category}</p>
+
+                    <div className="flex justify-end">
+                        <p className="text-lg">Price: ${price}</p>
+                        <p className="text-lg">Quantity: {quantity}</p>
+                    </div>
+                    <div className="card-actions">
+                        <Link to={`/singlefoodpage/${_id}`}><button className="btn btn-outline w-full">Details</button></Link>
                     </div>
                 </div>
             </div>

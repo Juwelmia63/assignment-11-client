@@ -9,6 +9,7 @@ import Gallery from "../pages/Gallery/Gallery";
 import AddItem from "../pages/AddItem/AddItem";
 import Myorder from "../pages/myorderPage/Myorder";
 import MyfoodItem from "../pages/myfoodItem/MyfoodItem";
+import SingleFoodPage from "../pages/singleFoodPage/SingleFoodPage";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
             {
                 path: "/myfooditem",
                 element: <MyfoodItem></MyfoodItem>
+            },
+            {
+                path: "/singlefoodpage/:id",
+                element: <SingleFoodPage></SingleFoodPage>,
+                loader: ({params})=> fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
             }
         ],
     },
