@@ -10,13 +10,14 @@ import AddItem from "../pages/AddItem/AddItem";
 import Myorder from "../pages/myorderPage/Myorder";
 import MyfoodItem from "../pages/myfoodItem/MyfoodItem";
 import SingleFoodPage from "../pages/singleFoodPage/SingleFoodPage";
+import Purchase from "../pages/purchase/Purchase";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
-        errorElement: <ErrorPage></ErrorPage> ,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -32,12 +33,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allfoodItem",
-                element:<AllFood></AllFood>,
-                loader: ()=> fetch('http://localhost:5000/allfood')
+                element: <AllFood></AllFood>,
+                loader: () => fetch('http://localhost:5000/allfood')
             },
             {
-                path:"/gallery",
-                element:<Gallery></Gallery>
+                path: "/gallery",
+                element: <Gallery></Gallery>
             },
             {
                 path: "/additem",
@@ -54,7 +55,12 @@ const router = createBrowserRouter([
             {
                 path: "/singlefoodpage/:id",
                 element: <SingleFoodPage></SingleFoodPage>,
-                loader: ({params})=> fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
+            },
+            {
+                path: "/purchase/:id",
+                element: <Purchase></Purchase>,
+                loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
             }
         ],
     },

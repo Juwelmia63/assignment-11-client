@@ -1,6 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { Authcontex } from "../../Provider/AuthProvider";
 
 const SingleFoodPage = () => {
+
+    const { user } = useContext(Authcontex);
 
     const food = useLoaderData();
     const { _id, food_name, food_image, food_category, price, quantity, food_origin, description } = food;
@@ -22,12 +26,12 @@ const SingleFoodPage = () => {
                     <p><span className="text-lg font-medium">Category:</span> {food_category}</p>
                     <p><span className="text-lg font-medium">Price:</span>$ {price}</p>
                     <p><span className="text-lg font-medium">Food Origin:</span> {food_origin}</p>
-                    <p><span className="text-lg font-medium">Made By:</span> </p>
+                    <p><span className="text-lg font-medium">Made By:</span>{user?.email} </p>
                 </div>
 
                 <div className="mb-4">
-                <button className="btn border-none btn-neutral w-full bg-[#EA6A12] text-white">Purchase</button>
-
+                    <Link to={`/purchase/${_id}`}><button className="btn border-none btn-neutral w-full bg-[#EA6A12] text-white">Purchase</button>
+                    </Link>
                 </div>
             </div>
         </div>
