@@ -40,7 +40,7 @@ const TopFoods = () => {
             </div>
             <div className="mt-4 flex justify-center mb-5">
                 <Link to="/allfoodItem">
-                    <button className="bg-[#EA6A12] text-white px-4 py-2 rounded-md hover:bg-orange-600">See All</button>
+                    <button className="btn btn-neutral text-white">See All</button>
                 </Link>
             </div>
         </div>
