@@ -32,7 +32,7 @@ const Myorder = () => {
                 <title>RestroBiz|MyOrder</title>
             </Helmet>
 
-            <div>
+            <div className="grid grid-cols-4 gap-2 my-6">
                {purchases.map(foodata=> <MyorderCard key={foodata._id} foodata={foodata}></MyorderCard>)}
             </div>
         </HelmetProvider>

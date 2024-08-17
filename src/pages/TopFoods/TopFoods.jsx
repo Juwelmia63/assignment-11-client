@@ -1,44 +1,47 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const TopFoods = () => {
+    const [topFoods, setTopFoods] = useState([]);
+
+    useEffect(() => {
+        fetchTopFoods();
+    }, []);
+
+    const fetchTopFoods = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/topFoodsItem');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            setTopFoods(data);
+        } catch (error) {
+            console.error('Error fetching top foods:', error);
+        }
+    };
     return (
-        <div>
-            <div className="grid lg:grid-cols-3 grid-cols-1 lg:gap-5 lg:ml-4 sm:ml-4">
-                <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">
-                    <figure><img src="" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
+        <div className="container mx-auto px-4">
+            <h2 className="font-bold mb-4 flex justify-center text-3xl mt-4">Top Selling Food Items</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-poppins">
+                {topFoods.map(food => (
+                    <div key={food._id} className="bg-white rounded-lg shadow-lg p-4">
+                        <img src={food.food_image} alt={food.food_name} className="w-full h-52 object-cover mb-2 rounded-lg" />
+                        <h3 className="text-xl font-semibold mb-2">{food.food_name}</h3>
+                        <div className="flex flex-row justify-between">
+                            <p className="text-sm text-gray-500 mb-2">Category: {food.food_category}</p>
+                            <p className="text-sm text-gray-500 mb-2">Price: ${food.price}</p>
                         </div>
+                        <Link to={`/singlefoodpage/${food._id}`}>
+                            <button className="bg-[#EA6A12] text-white px-4 py-2 rounded-md hover:bg-orange-600 w-full">Details</button>
+                        </Link>
                     </div>
-                </div>
-                <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">
-                    <figure><img src="" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="card card-compact w-96 bg-base-100 shadow-xl mb-5">
-                    <figure><img src="" alt="Shoes" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                            <button className="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-
-
+                ))}
             </div>
-            <div className="flex items-center justify-center">
-                <Link to="/allfoodItem">  <button className="btn text-white hover:text-black bg-[#EA6A12]">See All</button></Link>
+            <div className="mt-4 flex justify-center mb-5">
+                <Link to="/allfoodItem">
+                    <button className="bg-[#EA6A12] text-white px-4 py-2 rounded-md hover:bg-orange-600">See All</button>
+                </Link>
             </div>
         </div>
     );
