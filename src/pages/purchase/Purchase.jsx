@@ -73,13 +73,9 @@ const Purchase = () => {
                 <div className="card bg-base-100 w-96 shadow-xl ">
                     <div className="card-body flex justify-center items-center">
                         <h2 className="card-title text-4xl ">{food_name}</h2>
-                        {/* <p>{description}</p> */}
+                   
                     </div>
-                    {/* <figure>
-                        <img
-                            src={food_image}
-                            alt="Shoes" />
-                    </figure> */}
+                   
 
                     <div className="my-4 ">
 
@@ -113,10 +109,6 @@ const Purchase = () => {
                         </form>
                     </div>
 
-                    {/* <div className="mb-4">
-                        <button className="btn border-none btn-neutral w-full bg-[#EA6A12] text-white">Purchase</button>
-
-                    </div> */}
                 </div>
             </div>
         </div>
