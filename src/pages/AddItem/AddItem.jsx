@@ -1,12 +1,76 @@
+import { useContext } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Authcontex } from "../../Provider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const AddItem = () => {
+    const { user } = useContext(Authcontex);
+    // const { _id, food_name, food_image, food_category, price, food_origin, description } = food;
+
+
+    const handleaddfoodsubmit = async (e) => {
+        e.preventDefault();
+        // const buyingDate = new Date().toLocaleString();
+
+        const form = e.target
+        const food_name= form.name.value
+        const food_image = form.image.value
+        const food_category = form.category.value
+        const quantity=form.quantity.value
+        const price = form.price.value
+        const food_origin=form.origin.value
+        const description= form.description.value
+
+
+      
+        // addBy: user ? user.displayName : '',
+        // email: user ? user.email : '',
+      
+        const foodaddedData = {
+            food_name,
+            food_image,
+            addBy: user.displayName,
+            email: user.email,
+            food_category,
+            quantity,
+            price,
+            food_origin,
+            description
+        };
+        // console.table(purchaseData)
+
+        try {
+
+            const response = await axios.post('http://localhost:5000/addfood', foodaddedData);
+
+            // Show success toast
+            Swal.fire({
+                icon: 'success',
+                title: 'Added Successful!',
+                // text: 'Thank you for your purchase.',
+                confirmButtonText: 'OK'
+            });
+
+            console.log(response);
+
+
+        } catch (error) {
+            console.error('Error purchasing food:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Added Failed',
+                text: 'Please try again.',
+                confirmButtonText: 'OK'
+            });
+        }
+    };
     return (
         <HelmetProvider>
 
             <Helmet>
-            <title>RestroBiz|AddItem</title>
+                <title>RestroBiz|AddItem</title>
             </Helmet>
 
 
@@ -15,7 +79,7 @@ const AddItem = () => {
                     <div className="text-center">
                         <h1 className="text-3xl font-bold text-[#EA6A12]">Add Food</h1>
                     </div>
-                    <form className="mt-8 space-y-6">
+                    <form onSubmit={handleaddfoodsubmit} className="mt-8 space-y-6">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Food Name</label>
                             <input type="text" name="name" id="name" required className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />

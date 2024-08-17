@@ -21,8 +21,7 @@ const Purchase = () => {
 
 
     const [quantity, setQuantity] = useState(1);
-    // const [foodd, setFood] = useState(null);
-    // const [pricee, setPrice] = useState(0);
+    
 
 
 
@@ -36,7 +35,7 @@ const Purchase = () => {
             buyerName: user.displayName,
             buyerEmail: user.email,
             buyingDate:startDate,
-            foodImage: food_image
+            food_image
         };
         // console.table(purchaseData)
 
