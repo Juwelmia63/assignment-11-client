@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Authcontex } from "../../Provider/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 import axios from "axios";
 // import MyorderCard from "./MyorderCard";
 import Swal from "sweetalert2";
@@ -60,26 +61,29 @@ const Myorder = () => {
                 <title>RestroBiz|MyOrder</title>
             </Helmet>
 
-            <div className="grid grid-cols-4 gap-2 my-6">
-                {purchases.map(foodata =>
-                    <div key={foodata._id} className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-                        <div className="px-4 py-2">
-                            <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{foodata.buyerName}</h1>
-                            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{foodata.buyingDate}</p>
-                        </div>
+            <Fade direction="right">
+                <div className="grid grid-cols-4 gap-2 my-6">
+                    {purchases.map(foodata =>
+
+                        <div key={foodata._id} className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                            <div className="px-4 py-2">
+                                <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{foodata.buyerName}</h1>
+                                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{foodata.buyingDate}</p>
+                            </div>
 
 
-                        <div>
-                            <img className="object-cover w-full h-48 mt-2" src={foodata.food_image} alt="nai" />
+                            <div>
+                                <img className="object-cover w-full h-48 mt-2" src={foodata.food_image} alt="nai" />
 
+                            </div>
+                            <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
+                                <h1 className="text-lg font-bold text-white">${foodata.price}</h1>
+                                <button onClick={() => handleDelete(foodata._id)} className="btn btn-outline text-white font-medium py-2 px-4 rounded">Delete</button>
+                            </div>
                         </div>
-                        <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
-                            <h1 className="text-lg font-bold text-white">${foodata.price}</h1>
-                            <button onClick={() => handleDelete(foodata._id)} className="btn btn-outline text-white font-medium py-2 px-4 rounded">Delete</button>
-                        </div>
-                    </div>
-                )}
-            </div>
+                    )}
+                </div>
+            </Fade>
         </HelmetProvider>
     );
 };

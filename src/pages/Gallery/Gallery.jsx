@@ -10,7 +10,7 @@ import { useLoaderData } from "react-router-dom";
 const Gallery = () => {
     const imageee = useLoaderData();
     console.log(imageee);
-  
+
 
 
     const { user } = useContext(Authcontex)
@@ -25,6 +25,7 @@ const Gallery = () => {
         const foodaddedData = {
             food_image,
             email: user.email,
+            buyerName: user.displayName,
             description
         };
 
@@ -130,8 +131,10 @@ const Gallery = () => {
 
                 {/* gallery banner section end*/}
 
-
-                <GalleryCard></GalleryCard>
+                <div className="grid grid-cols-3 gap-4 my-5">
+                    {imageee.map(image=>  <GalleryCard key={image._id} image={image}></GalleryCard>)}
+                </div>
+                
 
             </div>
         </HelmetProvider>

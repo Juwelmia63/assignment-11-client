@@ -77,9 +77,9 @@ const AddItem = () => {
             <div className="min-h-screen font-poppins py-12 px-4 sm:px-6 lg:px-8 mt-14">
                 <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-xl">
                     <div className="text-center">
-                        <h1 className="text-3xl font-bold text-[#EA6A12]">Add Food</h1>
+                        <h1 className="text-3xl font-bold font-playfairDisplay text-[#EA6A12]">Add Food</h1>
                     </div>
-                    <form onSubmit={handleaddfoodsubmit} className="mt-8 space-y-6">
+                    <form onSubmit={handleaddfoodsubmit} className="mt-8 space-y-6 font-poppins">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Food Name</label>
                             <input type="text" name="name" id="name" required className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm focus:outline-none focus:ring-2 focus:ring-purple-500" />

@@ -1,25 +1,31 @@
+import { useContext } from "react";
+import { Authcontex } from "../../Provider/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 
 
 
-const GalleryCard = () => {
+
+const GalleryCard = ({ image }) => {
+    const { user } = useContext(Authcontex);
+
+
+
 
 
     return (
         <div>
-            <div className="card bg-base-100 image-full w-96 shadow-xl">
-                <figure>
-                    <img
-                        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                        alt="Shoes" />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+            <Fade direction="up">
+                <div className="relative">
+                    <img src={image.food_image} alt={image.user} className="w-full rounded-lg shadow-md h-80" />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 text-white rounded-lg">
+                        <div>
+                            <p className="text-4xl font-medium text-center">{user.displayName}</p>
+                            <p className="text-xl font-medium mt-2 p-4 text-justify">{image.description}</p>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Fade>
         </div>
     );
 };
