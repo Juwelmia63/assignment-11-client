@@ -1,5 +1,12 @@
+import { Link } from "react-router-dom";
 
-const MyfoodCard = ({food}) => {
+const MyfoodCard = ({ food }) => {
+    const {_id}=food;
+
+    // const handleUpdate = (id) => {
+    //     // Redirect to the update page with the ID of the food item
+    //     window.location.href = `/UpdateFood/${id}`;
+    // };
     return (
         <div>
             <div className="overflow-x-auto">
@@ -31,7 +38,7 @@ const MyfoodCard = ({food}) => {
                             </td>
                             <td>${food.price}</td>
                             <th>
-                                <button className="btn btn-outline text-white bg-[#EA6A12] border-none btn-xl">Update</button>
+                               <Link to={`/updatefood/${_id}`}> <button  className="btn btn-outline text-white bg-[#EA6A12] border-none btn-xl">Update</button></Link>
                             </th>
                         </tr>
 
