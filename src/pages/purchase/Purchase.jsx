@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { Fade } from "react-awesome-reveal";
 
 
 
@@ -69,6 +70,7 @@ const Purchase = () => {
 
     return (
         <div>
+            <Fade direction="down">
             <div className="flex items-center justify-center my-7 font-poppins">
                 <div className="card bg-base-100 w-96 shadow-xl ">
                     <div className="card-body flex justify-center items-center">
@@ -111,6 +113,7 @@ const Purchase = () => {
 
                 </div>
             </div>
+            </Fade>
         </div>
     );
 };

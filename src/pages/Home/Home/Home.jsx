@@ -3,6 +3,7 @@ import Banner from "../../Banner/Banner";
 import Extra from "../../HomeExtraone/Extra";
 import Rating from "../../HomeExtraone/Rating";
 import TopFoods from "../../TopFoods/TopFoods";
+import ContactExtra from "../../HomeExtraone/ContactExtra";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
                 <TopFoods></TopFoods>
                 <Extra></Extra>
                 <Rating></Rating>
+                <ContactExtra></ContactExtra>
             </div>
         </HelmetProvider>
     );
