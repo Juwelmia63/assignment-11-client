@@ -38,6 +38,21 @@ const TopFoods = () => {
                     </div>
                 ))}
             </div>
+
+
+
+            <div className="flex justify-center items-center mt-5">
+                <div className="join">
+                    <button className="join-item btn">Prev</button>
+                    <button className="join-item btn">1</button>
+                    <button className="join-item btn btn-active">2</button>
+                    <button className="join-item btn">3</button>
+                    <button className="join-item btn">4</button>
+                    <button className="join-item btn">Next</button>
+                </div>
+            </div>
+
+
             <div className="mt-4 flex justify-center mb-5">
                 <Link to="/allfoodItem">
                     <button className="btn btn-neutral text-white">See All</button>
