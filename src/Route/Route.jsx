@@ -12,6 +12,7 @@ import MyfoodItem from "../pages/myfoodItem/MyfoodItem";
 import SingleFoodPage from "../pages/singleFoodPage/SingleFoodPage";
 import Purchase from "../pages/purchase/Purchase";
 import UpdateFood from "../pages/myfoodItem/UpdateFood";
+import PrivateRoute from './../private/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/login",
-                element: <Login></Login>,
+                element:  <Login></Login>,
             },
             {
                 path: "/kali",
@@ -34,39 +35,39 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allfoodItem",
-                element: <AllFood></AllFood>,
+                element: <PrivateRoute> <AllFood></AllFood></PrivateRoute> ,
                 loader: () => fetch('http://localhost:5000/allfood')
             },
             {
                 path: "/gallery",
-                element: <Gallery></Gallery>,
+                element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/allgalleryfood'),
             },
             {
                 path: "/additem",
-                element: <AddItem></AddItem>
+                element: <PrivateRoute><AddItem></AddItem></PrivateRoute>
             },
             {
                 path: "/myordered",
-                element: <Myorder></Myorder>
+                element: <PrivateRoute><Myorder></Myorder></PrivateRoute>
             },
             {
                 path: "/myfooditem",
-                element: <MyfoodItem></MyfoodItem>
+                element: <PrivateRoute><MyfoodItem></MyfoodItem></PrivateRoute>
             },
             {
                 path: "/singlefoodpage/:id",
-                element: <SingleFoodPage></SingleFoodPage>,
+                element: <PrivateRoute><SingleFoodPage></SingleFoodPage></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
             },
             {
                 path: "/purchase/:id",
-                element: <Purchase></Purchase>,
+                element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
             },
             {
                 path:"/updatefood/:id",
-                element: <UpdateFood></UpdateFood>,
+                element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
             }
         ],

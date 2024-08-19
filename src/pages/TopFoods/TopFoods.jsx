@@ -22,7 +22,7 @@ const TopFoods = () => {
     };
     return (
         <div className="container mx-auto px-4">
-            <h2 className="font-bold mb-4 flex justify-center text-3xl mt-4">Top Selling Food Items</h2>
+            <h2 className="font-bold font-poppins mb-4 flex justify-center text-3xl mt-4">Top Selling Food</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 font-poppins">
                 {topFoods.map(food => (
                     <div key={food._id} className="bg-white rounded-lg shadow-lg p-4">

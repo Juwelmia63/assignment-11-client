@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Fade } from "react-awesome-reveal";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 
 
@@ -22,7 +23,7 @@ const Purchase = () => {
 
 
     const [quantity, setQuantity] = useState(1);
-    
+
 
 
 
@@ -35,13 +36,13 @@ const Purchase = () => {
             quantity,
             buyerName: user.displayName,
             buyerEmail: user.email,
-            buyingDate:startDate,
+            buyingDate: startDate,
             food_image
         };
         // console.table(purchaseData)
 
         try {
-          
+
             const response = await axios.post('http://localhost:5000/purchasedata', purchaseData);
 
             // Show success toast
@@ -69,52 +70,61 @@ const Purchase = () => {
 
 
     return (
-        <div>
-            <Fade direction="down">
-            <div className="flex items-center justify-center my-7 font-poppins">
-                <div className="card bg-base-100 w-96 shadow-xl ">
-                    <div className="card-body flex justify-center items-center">
-                        <h2 className="card-title text-4xl ">{food_name}</h2>
-                   
-                    </div>
-                   
 
-                    <div className="my-4 ">
+        <HelmetProvider>
 
-                        <div className="flex justify-around">
-                            <p><span className="text-lg font-medium">Price:</span>$ {price}</p>
-                            <p><span className="text-lg font-medium">Quantity:</span> {food.quantity}</p>
+
+            <Helmet>
+                <title>RestroBiz|Purchase</title>
+            </Helmet>
+            <div>
+                <Fade direction="down">
+                    <div className="flex items-center justify-center my-7 font-poppins">
+                        <div className="card bg-base-100 w-96 shadow-xl ">
+                            <div className="card-body flex justify-center items-center">
+                                <h2 className="card-title text-4xl ">{food_name}</h2>
+
+                            </div>
+
+
+                            <div className="my-4 ">
+
+                                <div className="flex justify-around">
+                                    <p><span className="text-lg font-medium">Price:</span>$ {price}</p>
+                                    <p><span className="text-lg font-medium">Quantity:</span> {food.quantity}</p>
+                                </div>
+                                <br />
+                                <div className="flex flex-col p-5">
+
+                                    <p><span className="text-lg font-medium">Buyer Name:</span> {user.displayName}</p>
+                                    <p><span className="text-lg font-medium">Buyer Email:</span> {user?.email} </p>
+                                    <p><span className="text-lg font-medium">Buying Date:</span>  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></p>
+                                </div>
+
+
+                                <form onSubmit={handlePurchase} className="mt-6">
+                                    <label className="block mb-2 ml-5 mb-3">
+                                        Quantity:
+                                        <input
+                                            type="number"
+                                            value={quantity}
+                                            onChange={(e) => setQuantity(parseInt(e.target.value))}
+                                            className="ml-2 p-1 border border-gray-300 rounded-md"
+                                            required
+                                        />
+                                    </label>
+
+                                    <button type="submit" className=" btn border-none btn-neutral w-full bg-[#EA6A12] text-white">Purchase</button>
+
+                                </form>
+                            </div>
+
                         </div>
-                        <br />
-                        <div className="flex flex-col p-5">
-
-                            <p><span className="text-lg font-medium">Buyer Name:</span> {user.displayName}</p>
-                            <p><span className="text-lg font-medium">Buyer Email:</span> {user?.email} </p>
-                            <p><span className="text-lg font-medium">Buying Date:</span>  <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></p>
-                        </div>
-
-
-                        <form onSubmit={handlePurchase} className="mt-6">
-                            <label className="block mb-2 ml-5 mb-3">
-                                Quantity:
-                                <input
-                                    type="number"
-                                    value={quantity}
-                                    onChange={(e) => setQuantity(parseInt(e.target.value))}
-                                    className="ml-2 p-1 border border-gray-300 rounded-md"
-                                    required
-                                />
-                            </label>
-
-                            <button type="submit" className=" btn border-none btn-neutral w-full bg-[#EA6A12] text-white">Purchase</button>
-
-                        </form>
                     </div>
-
-                </div>
+                </Fade>
             </div>
-            </Fade>
-        </div>
+        </HelmetProvider>
+
     );
 };
 

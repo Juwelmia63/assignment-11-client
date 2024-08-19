@@ -1,19 +1,21 @@
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
-import AllFoodCard from "./AllFoodCard";
-
+import React, { useState } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllFood = () => {
-    const allfood = useLoaderData()
-    // console.log(allfood);
+    const allfood = useLoaderData();
+    const [searchTerm, setSearchTerm] = useState('');
+
+    // Filter the food items based on the search term
+    const filteredFood = allfood.filter(food =>
+        food.food_name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
         <HelmetProvider>
-
-
             <Helmet>
-                <title>RestroBiz|All Food</title>
+                <title>RestroBiz | All Food</title>
             </Helmet>
-
 
             <div>
                 <div className="hero h-56 my-5 object-cover" style={{ backgroundImage: 'url(https://i.ibb.co/j4pvG0b/foods-to-eat-to-lose-weight.jpg)' }}>
@@ -25,10 +27,15 @@ const AllFood = () => {
                     </div>
                 </div>
 
-
-                <div className="my-8">
+                <div className="my-8 w-1/2 mx-auto">
                     <label className="input input-bordered flex items-center gap-2">
-                        <input type="text" className="grow" placeholder="Search" />
+                        <input
+                            type="text"
+                            className="grow"
+                            placeholder="Search"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -43,11 +50,34 @@ const AllFood = () => {
                 </div>
 
                 <div className="grid grid-cols-3 gap-4 mb-4 ml-5">
-                    {allfood.map(food => (<AllFoodCard key={food._id} food={food}></AllFoodCard>))}
+                    {filteredFood.map(food => (
+                        <div key={food._id}>
+                            <div className="card card-compact bg-base-100 w-96 shadow-xl">
+                                <figure>
+                                    <img
+                                        className="object-cover h-[240px] w-[400px]"
+                                        src={food.food_image}
+                                        alt={food.food_name}
+                                    />
+                                </figure>
+                                <div className="card-body">
+                                    <h2 className="card-title text-2xl">{food.food_name}</h2>
+                                    <p className="text-xl">{food.food_category}</p>
+                                    <div className="flex justify-end">
+                                        <p className="text-lg">Price: ${food.price}</p>
+                                        <p className="text-lg">Quantity: {food.quantity}</p>
+                                    </div>
+                                    <div className="card-actions flex justify-center items-center">
+                                        <Link to={`/singlefoodpage/${food._id}`}>
+                                            <button className="btn btn-outline w-80">Details</button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-
-
         </HelmetProvider>
     );
 };
