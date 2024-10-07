@@ -43,7 +43,7 @@ const AddItem = () => {
 
         try {
 
-            const response = await axios.post('http://localhost:5000/addfood', foodaddedData);
+            const response = await axios.post('https://assignment-eleven-server-swart.vercel.app/addfood', foodaddedData);
 
             // Show success toast
             Swal.fire({
@@ -53,7 +53,7 @@ const AddItem = () => {
                 confirmButtonText: 'OK'
             });
 
-            console.log(response);
+            // console.log(response);
 
 
         } catch (error) {

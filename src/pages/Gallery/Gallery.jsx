@@ -9,7 +9,7 @@ import { useLoaderData } from "react-router-dom";
 
 const Gallery = () => {
     const imageee = useLoaderData();
-    console.log(imageee);
+    // console.log(imageee);
 
 
 
@@ -32,7 +32,7 @@ const Gallery = () => {
 
         try {
 
-            const response = await axios.post('http://localhost:5000/galleryimage', foodaddedData);
+            const response = await axios.post('https://assignment-eleven-server-swart.vercel.app/galleryimage', foodaddedData);
 
 
             Swal.fire({

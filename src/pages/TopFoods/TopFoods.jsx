@@ -10,7 +10,7 @@ const TopFoods = () => {
 
     const fetchTopFoods = async () => {
         try {
-            const response = await fetch('http://localhost:5000/topFoodsItem');
+            const response = await fetch('https://assignment-eleven-server-swart.vercel.app/topFoodsItem');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

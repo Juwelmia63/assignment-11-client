@@ -16,8 +16,8 @@ const Myorder = () => {
     useEffect(() => {
         const fetchPurchases = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/mypurchasedata/${user.email}`);
-                console.log(response.data);
+                const response = await axios.get(`https://assignment-eleven-server-swart.vercel.app/mypurchasedata/${user.email}`);
+                // console.log(response.data);
                 setPurchases(response.data);
             } catch (error) {
                 console.error('Error fetching purchases:', error);
@@ -42,7 +42,7 @@ const Myorder = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await axios.delete(`http://localhost:5000/purchase/${id}`);
+                    await axios.delete(`https://assignment-eleven-server-swart.vercel.app/purchase/${id}`);
                     // After successful deletion, update the purchases state by filtering out the deleted purchase
                     setPurchases(prevPurchases => prevPurchases.filter(purchase => purchase._id !== id));
                     Swal.fire('Deleted!', 'Your purchase has been deleted.', 'success');

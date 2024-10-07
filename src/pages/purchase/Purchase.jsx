@@ -43,7 +43,7 @@ const Purchase = () => {
 
         try {
 
-            const response = await axios.post('http://localhost:5000/purchasedata', purchaseData);
+            const response = await axios.post('https://assignment-eleven-server-swart.vercel.app/purchasedata', purchaseData);
 
             // Show success toast
             Swal.fire({
@@ -53,7 +53,7 @@ const Purchase = () => {
                 confirmButtonText: 'OK'
             });
 
-            console.log(response);
+            // console.log(response);
 
 
         } catch (error) {

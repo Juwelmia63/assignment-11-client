@@ -15,7 +15,7 @@ const MyfoodItem = () => {
     useEffect(() => {
         const fetchAddedFood = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/addfood/${user.email}`);
+                const response = await axios.get(`https://assignment-eleven-server-swart.vercel.app/addfood/${user.email}`);
                 console.log("Response Data:", response.data);
                 setAddfood(response.data);
 

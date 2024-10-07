@@ -36,12 +36,12 @@ const router = createBrowserRouter([
             {
                 path: "/allfoodItem",
                 element: <PrivateRoute> <AllFood></AllFood></PrivateRoute> ,
-                loader: () => fetch('http://localhost:5000/allfood')
+                loader: () => fetch('https://assignment-eleven-server-swart.vercel.app/allfood')
             },
             {
                 path: "/gallery",
                 element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/allgalleryfood'),
+                loader: () => fetch('https://assignment-eleven-server-swart.vercel.app/allgalleryfood'),
             },
             {
                 path: "/additem",
@@ -58,17 +58,17 @@ const router = createBrowserRouter([
             {
                 path: "/singlefoodpage/:id",
                 element: <PrivateRoute><SingleFoodPage></SingleFoodPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-swart.vercel.app/singlefoodpage/${params.id}`),
             },
             {
                 path: "/purchase/:id",
                 element: <PrivateRoute><Purchase></Purchase></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-swart.vercel.app/singlefoodpage/${params.id}`),
             },
             {
                 path:"/updatefood/:id",
                 element: <PrivateRoute><UpdateFood></UpdateFood></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/singlefoodpage/${params.id}`),
+                loader: ({ params }) => fetch(`https://assignment-eleven-server-swart.vercel.app/singlefoodpage/${params.id}`),
             }
         ],
     },

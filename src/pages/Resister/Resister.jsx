@@ -46,9 +46,9 @@ const Resister = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const name = form.name.value;
-        const photo = form.photo.value;
-        console.log(email, password, name, photo);
+        // const name = form.name.value;
+        // const photo = form.photo.value;
+        // console.log(email, password, name, photo);
 
 
 
@@ -76,8 +76,8 @@ const Resister = () => {
 
 
         createUser(email, password)
-            .then(result => {
-                console.log(result.user);
+            .then(() => {
+                // console.log(result.user);
                 setSuccess('User Create Successfully')
             })
 
